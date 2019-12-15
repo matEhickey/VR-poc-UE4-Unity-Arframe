@@ -1,0 +1,63 @@
+<!--  This file is used by dev configuration, it don't use browserify, so all libs imported in js/index.js should have their equivalent script tag here -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Aframe - POCS</title>
+    <meta name="description" content="Hello, World! - A-Frame">
+
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>  <!-- no more need to 7.1 version since not using autodetectcontroller -->
+    <script src="https://unpkg.com/aframe-supercraft-loader/dist/aframe-supercraft-loader.min.js"></script> <!-- To load the gun, and maybe other assets created in supercraft -->
+
+    <script src="./node_modules/aframe-extras/dist/aframe-extras.js"></script> <!-- include many physical behavior, will be use to control the grab -->
+    <script src="./node_modules/aframe-template-component/dist/aframe-template-component.js"></script> <!-- For defining different scenes, and easily switching between them  -->
+
+    <script src="./js/libs/aframe-gui.js"></script> <!-- the world space ui library -->
+    <script src="./js/libs/aframe-state-component.js"></script><!-- The replacement for redux (aframe state system) -->
+    <!-- <script src="./js/libs/aframe-input-mapping-component.js"></script> --> <!-- Use to define only once the relation between buttons and actions for different headsets -->
+
+
+    <script src="./js/entities/tablet.js"></script> <!-- the creation and definition of the entity tablet -->
+
+    <script src="./js/components/tablet.js"></script> <!-- the compoenntnes that interact with the tablet entity -->
+    <script src="./js/components/keyboardMove.js"></script><!-- a basic example for moves with keyboard (reuse when get access to sticks values) -->
+
+    <script src="./js/systems/states.js"></script><!-- our state reducers -->
+    <script src="./js/systems/inputMapping.js"></script><!-- our try to input mapping -->
+
+     <!--our behaviors -->
+    <script src="./js/systems/interactions.js"></script>
+    <script src="./js/systems/translations.js"></script>
+    <script src="./js/systems/rotations.js"></script>
+
+
+  </head>
+  <body>
+    <!-- aframe scene declaration, with debug and stats enabled -->
+    <a-scene vr-mode-ui="enabled: true" debug stats
+                  renderer="antialias: false;
+                   gammaOutput: false;
+                   sortObjects: false;
+                   physicallyCorrectLights: false;"> <!-- renderer config exemple (all false is by default) -->
+
+      <a-assets><!-- our assets definition, equivalent to a upload -->
+          <a-asset-item id="forest-obj" src="../objects/forest.obj"></a-asset-item>
+          <a-asset-item id="forest-mtl" src="../objects/forest.mtl"></a-asset-item>
+          <a-asset-item id="industrial-obj" src="../objects/industrial.obj"></a-asset-item>
+          <a-asset-item id="industrial-mtl" src="../objects/industrial.mtl"></a-asset-item>
+          <a-asset-item id="hub-obj" src="../objects/hub.obj"></a-asset-item>
+          <a-asset-item id="hub-mtl" src="../objects/hub.mtl"></a-asset-item>
+
+          <a-asset-item id="gun" src="objects/gun.json"></a-asset-item>
+
+          <img crossorigin="anonymous" id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
+      </a-assets>
+
+      <!-- The scene template changer -->
+      <a-entity id="scene" template="src: ./scenes/hub.html"></a-entity>
+
+
+    </a-scene>
+  </body>
+</html>

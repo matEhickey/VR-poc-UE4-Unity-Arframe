@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Aframe - POCS</title>
+    <meta name="description" content="Hello, World! - A-Frame">
+    <script src="js/libs/bundle.js"></script>
+  </head>
+  <body>
+    <a-scene vr-mode-ui="enabled: true">
+
+      <a-assets>
+          <a-asset-item id="forest-obj" src="../objects/forest.obj"></a-asset-item>
+          <a-asset-item id="forest-mtl" src="../objects/forest.mtl"></a-asset-item>
+          <a-asset-item id="industrial-obj" src="../objects/industrial.obj"></a-asset-item>
+          <a-asset-item id="industrial-mtl" src="../objects/industrial.mtl"></a-asset-item>
+          <a-asset-item id="hub-obj" src="../objects/hub.obj"></a-asset-item>
+          <a-asset-item id="hub-mtl" src="../objects/hub.mtl"></a-asset-item>
+
+          <a-asset-item id="gun" src="objects/gun.json"></a-asset-item>
+
+          <img crossorigin="anonymous" id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
+
+      </a-assets>
+
+      <a-entity id="scene" template="src: ./scenes/hub.html"></a-entity>
+
+
+    </a-scene>
+  </body>
+</html>

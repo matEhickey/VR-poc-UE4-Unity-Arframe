@@ -1,0 +1,44 @@
+<a-sky color="#fdffa5"></a-sky>
+<!-- <a-sky id="background" src="#skyTexture" theta-length="90" radius="30"></a-sky> -->
+<a-entity obj-model="obj: #hub-obj; mtl: #hub-mtl"></a-entity>
+
+
+<!-- <a-box id="box1" position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box> -->
+<!-- <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere> -->
+
+<!-- <a-plane position="0 0 -4" rotation="-90 0 0" width="40" height="40" color="#7BC8A4"></a-plane> -->
+
+<a-text value="HUB" position="0 1.7 -3" color="black"></a-text>
+
+
+
+
+
+<a-entity id="player" position="-0.5 0 1.5" rotation="0 180 0"> <!-- The player -->
+
+  <a-entity camera look-controls id="camera_player"></a-entity> <!-- The camera (need look-controls for aframe < 8.0 )-->
+
+
+  <a-entity
+      id="lefthand"
+      tablet-hider
+      oculus-touch-controls="hand: left"
+      vive-controls="hand: left"
+      windows-motion-controls="hand: left"> <!-- The left hand containing the tablet -->
+    <a-gui-tablet>
+    </a-gui-tablet>
+  </a-entity>
+
+  <a-entity
+      id="righthand"
+      oculus-touch-controls="hand: right"
+      vive-controls="hand: right"
+      windows-motion-controls="hand: right"> <!-- The right hand with laser-controls -->
+  </a-entity>
+
+
+  <a-entity id="rightlaser" laser-controls="hand:right" visible=false>
+  </a-entity>
+
+
+</a-entity>
